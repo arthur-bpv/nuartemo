@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>NUARTE - IFRN/MO</title>
+  <link rel="icon" type="image/x-icon" href="images/minilogo.ico">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="css/vendor.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <defs>
+      <symbol id="facebook" viewBox="0 0 22 22">
+        <path fill="currentColor"
+          d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02" />
+      </symbol>
+      <symbol id="youtube" viewBox="0 0 22 22">
+        <path fill="currentColor"
+          d="m10 15l5.19-3L10 9zm11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73" />
+      </symbol>
+      <symbol id="instagram" viewBox="0 0 22 22">
+        <path fill="currentColor"
+          d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+      </symbol>
+      <symbol id="twitter" viewBox="0 0 16 16">
+        <path fill="currentColor"
+          d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+      </symbol>
+      <symbol id="quote" viewBox="0 0 24 24">
+        <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+      </symbol>
+      <symbol id="clock" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M15.098 12.634L13 11.423V7a1 1 0 0 0-2 0v5a1 1 0 0 0 .5.866l2.598 1.5a1 1 0 1 0 1-1.732M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2m0 18a8 8 0 1 1 8-8a8.01 8.01 0 0 1-8 8" />
+      </symbol>
+      <symbol id="arrow-circle-right" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M15.71 12.71a1 1 0 0 0 .21-.33a1 1 0 0 0 0-.76a1 1 0 0 0-.21-.33l-3-3a1 1 0 0 0-1.42 1.42l1.3 1.29H9a1 1 0 0 0 0 2h3.59l-1.3 1.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0ZM22 12a10 10 0 1 0-10 10a10 10 0 0 0 10-10M4 12a8 8 0 1 1 8 8a8 8 0 0 1-8-8" />
+      </symbol>
+      <symbol id="search" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39M11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7" />
+      </symbol>
+      <symbol id="user-circle" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12 2a10 10 0 0 0-7.35 16.76a10 10 0 0 0 14.7 0A10 10 0 0 0 12 2m0 18a8 8 0 0 1-5.55-2.25a6 6 0 0 1 11.1 0A8 8 0 0 1 12 20m-2-10a2 2 0 1 1 2 2a2 2 0 0 1-2-2m8.91 6A8 8 0 0 0 15 12.62a4 4 0 1 0-6 0A8 8 0 0 0 5.09 16A7.92 7.92 0 0 1 4 12a8 8 0 0 1 16 0a7.92 7.92 0 0 1-1.09 4" />
+      </symbol>
+      <symbol id="shopping-bag" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1m-9-1a2 2 0 0 1 4 0v1h-4Zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2Z" />
+      </symbol>
+      <symbol id="heart" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M20.16 5A6.29 6.29 0 0 0 12 4.36a6.27 6.27 0 0 0-8.16 9.48l6.21 6.22a2.78 2.78 0 0 0 3.9 0l6.21-6.22a6.27 6.27 0 0 0 0-8.84m-1.41 7.46l-6.21 6.21a.76.76 0 0 1-1.08 0l-6.21-6.24a4.29 4.29 0 0 1 0-6a4.27 4.27 0 0 1 6 0a1 1 0 0 0 1.42 0a4.27 4.27 0 0 1 6 0a4.29 4.29 0 0 1 .08 6Z" />
+      </symbol>
+      <symbol id="tick-circle" viewBox="0 0 24 24">
+        <circle cx="8" cy="8" r="8" fill="currentColor" />
+      </symbol>
+      <symbol id="feather" viewBox="0 0 16 16">
+        <path d="M15.807.531c-.174-.177-.41-.289-.64-.363a3.8 3.8 0 0 0-.833-.15c-.62-.049-1.394 0-2.252.175C10.365.545 8.264 1.415 6.315 3.1S3.147 6.824 2.557 8.523c-.294.847-.44 1.634-.429 2.268.005.316.05.62.154.88q.025.061.056.122A68 68 0 0 0 .08 15.198a.53.53 0 0 0 .157.72.504.504 0 0 0 .705-.16 68 68 0 0 1 2.158-3.26c.285.141.616.195.958.182.513-.02 1.098-.188 1.723-.49 1.25-.605 2.744-1.787 4.303-3.642l1.518-1.55a.53.53 0 0 0 0-.739l-.729-.744 1.311.209a.5.5 0 0 0 .443-.15l.663-.684c.663-.68 1.292-1.325 1.763-1.892.314-.378.585-.752.754-1.107.163-.345.278-.773.112-1.188a.5.5 0 0 0-.112-.172M3.733 11.62C5.385 9.374 7.24 7.215 9.309 5.394l1.21 1.234-1.171 1.196-.027.03c-1.5 1.789-2.891 2.867-3.977 3.393-.544.263-.99.378-1.324.39a1.3 1.3 0 0 1-.287-.018Zm6.769-7.22c1.31-1.028 2.7-1.914 4.172-2.6a7 7 0 0 1-.4.523c-.442.533-1.028 1.134-1.681 1.804l-.51.524zm3.346-3.357C9.594 3.147 6.045 6.8 3.149 10.678c.007-.464.121-1.086.37-1.806.533-1.535 1.65-3.415 3.455-4.976 1.807-1.561 3.746-2.36 5.31-2.68a8 8 0 0 1 1.564-.173"/>
+      </symbol>      
+      <symbol id="film" viewBox="0 0 16 16">
+        <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"/>
+      </symbol>
+      <symbol id="palette" viewBox="0 0 16 16">
+        <path d="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07M8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3M5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+      </symbol>
+      <symbol id="person-arms-up" viewBox="0 0 16 16">
+        <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+        <path d="m5.93 6.704-.846 8.451a.768.768 0 0 0 1.523.203l.81-4.865a.59.59 0 0 1 1.165 0l.81 4.865a.768.768 0 0 0 1.523-.203l-.845-8.451A1.5 1.5 0 0 1 10.5 5.5L13 2.284a.796.796 0 0 0-1.239-.998L9.634 3.84a.7.7 0 0 1-.33.235c-.23.074-.665.176-1.304.176-.64 0-1.074-.102-1.305-.176a.7.7 0 0 1-.329-.235L4.239 1.286a.796.796 0 0 0-1.24.998l2.5 3.216c.317.316.475.758.43 1.204Z"/>
+      </symbol>
+      <symbol id="book-half" viewBox="0 0 16 16">
+        <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+      </symbol>
+      <symbol id="music-note-beamed" viewBox="0 0 16 16">
+        <path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13s1.12-2 2.5-2 2.5.896 2.5 2m9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2"/>
+        <path fill-rule="evenodd" d="M14 11V2h1v9zM6 3v10H5V3z"/>
+        <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4z"/>
+      </symbol>
+      <symbol id="music-note" viewBox="0 0 16 16">
+        <path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2"/>
+        <path fill-rule="evenodd" d="M9 3v10H8V3z"/>
+        <path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5z"/>
+      </symbol>
+      <symbol id="emoji-grin-fill" viewBox="0 0 16 16">
+        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M6.488 7c-.23-.598-.661-1-1.155-1-.493 0-.924.402-1.155 1A2.8 2.8 0 0 1 4 6c0-1.105.597-2 1.333-2 .737 0 1.334.895 1.334 2 0 .364-.065.706-.179 1m5.334 0c-.23-.598-.662-1-1.155-1-.494 0-.925.402-1.155 1a2.8 2.8 0 0 1-.179-1c0-1.105.597-2 1.334-2C11.403 4 12 4.895 12 6c0 .364-.065.706-.178 1M2.696 8.756a.48.48 0 0 1 .382-.118C4.348 8.786 6.448 9 8 9c1.553 0 3.653-.214 4.922-.362a.48.48 0 0 1 .383.118.3.3 0 0 1 .096.29c-.09.47-.242.921-.445 1.342-.263.035-.576.075-.929.115A37 37 0 0 1 8 10.75c-1.475 0-2.934-.123-4.027-.247-.353-.04-.666-.08-.93-.115A5.5 5.5 0 0 1 2.6 9.045a.3.3 0 0 1 .097-.29ZM8 13.5a5.49 5.49 0 0 1-4.256-2.017l.116.014c1.115.126 2.615.253 4.14.253s3.025-.127 4.14-.253l.117-.014A5.49 5.49 0 0 1 8 13.5"/>
+      </symbol>      
+    </defs>
+  </svg>
+
+  <div class="preloader-wrapper">
+    <div class="preloader">
+    </div>
+  </div>
+
+  <nav class="main-menu d-flex navbar navbar-expand-lg p-2 py-3 p-lg-4 py-lg-4">
+    <div class="container-fluid">
+      <div class="main-logo d-lg-none">
+        <a href="index.html">
+          <img src="images/logo.png" alt="logo" class="img-fluid">
+        </a>
+      </div>
+
+      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+        <div class="offcanvas-header mt-3">
+          <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body justify-content-between">
+          <div class="main-logo">
+            <a href="index.html">
+              <img src="images/logo.png" alt="logo" class="img-fluid">
+            </a>
+          </div>
+
+          <ul class="navbar-nav menu-list list-unstyled align-items-lg-center d-flex gap-md-3 mb-0 w-100 justify-content-center">
+              <a href="index.html" class="nav-link mx-4 active">Início</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link mx-4 dropdown-toggle align-items-center" role="button" id="groups"
+                data-bs-toggle="dropdown" aria-expanded="false">Grupos</a>
+              <ul class="dropdown-menu" aria-labelledby="groups">
+                <li><a href="a_cicuta.html" class="dropdown-item">A Cicuta<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="andaluz.html" class="dropdown-item">Andaluz<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="banda_descendentes.html" class="dropdown-item">Banda Descendentes<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="banda_sn.html" class="dropdown-item">Banda SN<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="clube_de_escrita.html" class="dropdown-item">Clube de Escrita Davi Tintino<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="clube_do_livro.html" class="dropdown-item">Clube do Livro<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="flauteando.html" class="dropdown-item">Flauteando<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="nuav.html" class="dropdown-item">NUAV<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="passocompasso.html" class="dropdown-item">PassoComPasso<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+                <li><a href="rabisco.html" class="dropdown-item">Rabisco<span
+                      class="badge bg-secondary text-white ms-2"></span></a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="artevivencias.html" class="nav-link mx-4">ArteVivências</a>
+            </li>
+            
+            <li class="nav-item">
+              <a href="eventos.php" class="nav-link mx-4" id="eventos">Eventos</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="about.html" class="nav-link mx-4" id="about">Sobre Nós</a>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <section id="hero" style="background-image:url(images/billboard-bg.png); background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Coluna com o logo e botão -->
+        <div class="col-md-6 pe-5 mt-5 mt-md-0">
+          <img src="images/logo-resized.png" alt="Logo" class="img-fluid" style="max-width: 100%; height: auto;"/>
+          <a class="btn btn-primary btn-xl mt-5" href="#scroll" style="padding: 15px 50px; margin: 20px;" onclick="document.getElementById('secao-destino').scrollIntoView({behavior: 'smooth'});">Saiba mais</a>
+        </div>
+        <!-- Coluna com a imagem do billboard -->
+        <div class="col-md-6 mt-5" >
+          <img src="images/billboard-img.png" alt="img" class="img-fluid" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="feature-box container">
+      <div class="row ">
+        <div class="col-md-3 col-sm-6 mb-5 mb-md-0">
+          <div class="feature-item py-5  rounded-4">
+            <div class="feature-detail text-center">
+              <h2 class="feature-title">10</h2>
+              <h6 class="feature-info text-uppercase">Grupos e coletivos artísticos</h6>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-5 mb-md-0">
+          <div class="feature-item py-5  rounded-4">
+            <div class="feature-detail text-center">
+              <h2 class="feature-title">2</h2>
+              <h6 class="feature-info text-uppercase">Festivais de Arte por ano</h6>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-5 mb-md-0">
+          <div class="feature-item py-5  rounded-4">
+            <div class="feature-detail text-center">
+              <h2 class="feature-title">5</h2>
+              <h6 class="feature-info text-uppercase">Culturas de Quinta por ano</h6>
+
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-5 mb-md-0">
+          <div class="feature-item py-5  rounded-4">
+            <div class="feature-detail text-center">
+              <h2 class="feature-title">5</h2>
+              <h6 class="feature-info text-uppercase">Escolas estaduais contempladas com o projeto ArteVivências</h6>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="padding-medium mt-xl-5">
+    <div class="container">
+      <div class="row align-items-center mt-xl-5">
+        <div class="offset-md-1 col-md-5">
+          <img src="images/ind-01.JPG" alt="img" class="img-fluid rounded-circle" id="secao-destino">
+        </div>
+        <div class="col-md-5 mt-5 mt-md-0">
+          <div class="mb-3">
+            <p class="text-secondary">Descubra um pouco sobre nós</p>
+            <h2 class="display-6 fw-semibold">Quem somos nós?</h2>
+          </div>
+          <p>
+            O Núcleo de Artes do IFRN - Campus Mossoró (NUARTE/MO) integra a política de extensão do IFRN e tem como objetivo contribuir para a formação crítica, artística, cultural e cidadã de estudantes, servidores e da comunidade de Mossoró, promovendo também o surgimento de novos coletivos artísticos. 
+            É subdividido em grupos que abordam diferentes formas de arte, incluindo A Cicuta e Rabisco, Banda Descendentes, Banda SN, Clube do Livro, Cia de Dança PassoComPasso, Flauteando Clube de Escrita, Grupo Andaluz de Teatro e NUAV (Núcleo de Audiovisual), todos coordenados pelos próprios estudantes.
+          </p>
+          <div class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-size text-secondary">
+              <use href="#tick-circle"/>
+            </svg>
+            <p class="ps-4">
+              Os eventos organizados pelo NUARTE/MO são desenvolvidos por 
+              <span style="color:#ee0979; font-weight:bold;">orientadores, coordenadores, bolsistas e integrantes do núcleo no geral</span>.
+            </p>
+          </div>
+          <div class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-size text-secondary">
+              <use href="#tick-circle"/>
+            </svg>
+            <p class="ps-4">
+              A atual orientadora do NuArte/MO é a professora 
+              <span style="color:#ee0979; font-weight:bold;">Maria Luiza Lopes</span>.
+            </p>
+          </div>
+          <a href="about.html" class="btn btn-primary px-5 py-3 mt-4">Saiba Mais</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="category">
+  <div class="container ">
+    <div class="d-md-flex justify-content-between align-items-center">
+      <div>
+        <p class="text-secondary ">Conheça os nossos coletivos</p>
+        <h2 class="display-6 fw-semibold">Nossos coletivos</h2>
+      </div>
+    </div>
+    <div class="row g-md-3 mt-2">
+      <!-- Primeira Coluna -->
+      <div class="col-md-4">
+        <div class="primary rounded-3 p-4 my-3">
+          <a href="a_cicuta.html" class="text-decoration-none">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" >
+                <use href="#quote" class="svg-primary" />
+              </svg>
+              <div class="ps-4">
+                <p class="category-paragraph fw-bold text-uppercase mb-1">A Cicuta</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="primary rounded-3 p-4 my-3">
+          <a href="andaluz.html" class="text-decoration-none">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+                <use href="#emoji-grin-fill" class="svg-tertiary" />
+              </svg>
+              <div class="ps-4">
+                <p class="category-paragraph fw-bold text-uppercase mb-1">Andaluz</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="primary rounded-3 p-4 my-3">
+          <a href="banda_descendentes.html" class="text-decoration-none">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+                <use href="#music-note-beamed" class="svg-secondary" />
+              </svg>
+              <div class="ps-4">
+                <p class="category-paragraph fw-bold text-uppercase mb-1">Banda Descendentes</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="primary rounded-3 p-4 my-3">
+          <a href="banda_sn.html" class="text-decoration-none">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+                <use href="#music-note-beamed" class="svg-secondary" />
+              </svg>
+              <div class="ps-4">
+                <p class="category-paragraph fw-bold text-uppercase mb-1">Banda SN</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- Segunda Coluna -->
+      <div class="col-md-4">
+        <div class="secondary rounded-3 p-4 my-3">
+          <a href="clube_de_escrita.html" class="text-decoration-none">
+          <div class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+              <use href="#feather" class="svg-gray" />
+            </svg>
+            <div class="ps-4">
+              <p class="category-paragraph fw-bold text-uppercase mb-1">Clube de Escrita Davi Tintino</p>
+            </div>
+          </div>
+          </a>
+        </div>
+        <div class="secondary rounded-3 p-4 my-3">
+          <a href="clube_do_livro.html" class="text-decoration-none">
+          <div class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+              <use href="#book-half" class="svg-secondary" />
+            </svg>
+            <div class="ps-4">
+              <p class="category-paragraph fw-bold text-uppercase mb-1">Clube do Livro</p>
+            </div>
+          </div>
+          </a>
+        </div>
+        <div class="secondary rounded-3 p-4 my-3">
+          <a href="flauteando.html" class="text-decoration-none">
+          <div class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+              <use href="#music-note" class="svg-tertiary" />
+            </svg>
+            <div class="ps-4">
+              <p class="category-paragraph fw-bold text-uppercase mb-1">Flauteando</p>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div>
+      <!-- Terceira Coluna -->
+      <div class="col-md-4">
+        <div class="tertiary rounded-3 p-4 my-3">
+          <a href="nuav.html" class="text-decoration-none">
+          <div class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+              <use href="#film" class="svg-tertiary" />
+            </svg>
+            <div class="ps-4">
+              <p class="category-paragraph fw-bold text-uppercase mb-1">NUAV</p>
+            </div>
+          </div>
+          </a> 
+        </div>
+        <div class="tertiary rounded-3 p-4 my-3">
+          <a href="passocompasso.html" class="text-decoration-none">
+          <div class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+              <use href="#person-arms-up" class="svg-tertiary" />
+            </svg>
+            <div class="ps-4">
+              <p class="category-paragraph fw-bold text-uppercase mb-1">PassoComPasso</p>
+            </div>
+          </div>
+          </a>
+        </div>
+        <div class="tertiary rounded-3 p-4 my-3">
+          <a href="rabisco.html" class="text-decoration-none">
+          <div class="d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px">
+              <use href="#palette" class="svg-primary" />
+            </svg>
+            <div class="ps-4">
+              <p class="category-paragraph fw-bold text-uppercase mb-1">Rabisco</p>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LightWidget WIDGET -->
+<div style="display: flex; justify-content: center; align-items: center; margin-top: 50px; margin-bottom: 50px;">
+  <div style="width: 80%; max-width: 900px; padding: 20px; background-color: #ffffff; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); border-radius: 15px;">
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+    <iframe src="//lightwidget.com/widgets/36c3c445111a5e01ae70497ef7bf5541.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%; height: 400px; border: 0; overflow: hidden; border-radius: 15px;">
+    </iframe>
+  </div>
+</div>
+
+<footer id="footer">
+  <div class="container padding-medium">
+    <div class="row">
+      <div class="col-sm-6 col-lg-4 my-3">
+        <div class="footer-menu">
+          <a href="index.html">
+            <img src="images/logo.png" alt="logo" class="img-fluid">
+          </a>
+          <div class="social-links mt-4">
+            <ul class="d-flex list-unstyled ">
+              <li class="me-4">
+                <a href="https://www.facebook.com/nuarte.mo/">
+                  <svg class="social-icon" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#facebook"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="me-4" style="display: inline-block; vertical-align: middle;">
+                <a href="https://twitter.com/nuartemo?s=11&t=UaoB4dECDR4XguQ5QrOjng">
+                  <svg class="social-icon" width="30" height="30" aria-hidden="true" style="vertical-align: middle;">
+                    <use xlink:href="#twitter"></use>
+                  </svg>
+                </a>
+              </li>                
+              <li class="me-4">
+                <a href="https://www.instagram.com/nuartemossoro/">
+                  <svg class="social-icon" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#instagram"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="me-4">
+                <a href="https://www.youtube.com/@nuartemossoro7162">
+                  <svg class="social-icon" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#youtube"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2 my-3">
+        <div class="footer-menu">
+          <h5 class=" fw-bold mb-4">Links Rápidos</h5>
+          <ul class="menu-list list-unstyled">
+            <li class="menu-item mb-2">
+              <a href="index.html" class="footer-link">Início</a>
+            </li>
+            <li class="menu-item mb-2">
+              <a href="artevivencias.html" class="footer-link">ArteVivências</a>
+            </li>
+            <li class="menu-item mb-2">
+              <a href="eventos.php" class="footer-link">Eventos</a>
+            </li>
+            <li class="menu-item mb-2">
+              <a href="about.html" class="footer-link">Sobre Nós</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2 my-3">
+        <div class="footer-menu-g">
+          <h5 class="fw-bold mb-4">Grupos</h5>
+          <ul class="menu-list list-unstyled footer-groups-list">
+            <li class="menu-item mb-2"><a href="a_cicuta.html" class="footer-link">A Cicuta</a></li>
+            <li class="menu-item mb-2"><a href="andaluz.html" class="footer-link">Andaluz</a></li>
+            <li class="menu-item mb-2"><a href="banda_descendentes.html" class="footer-link">Banda Descendentes</a></li>
+            <li class="menu-item mb-2"><a href="banda_sn.html" class="footer-link">Banda SN</a></li>
+            <li class="menu-item mb-2"><a href="clube_de_escrita.html" class="footer-link">Clube de Escrita D. T.</a></li>
+            <li class="menu-item mb-2"><a href="clube_do_livro.html" class="footer-link">Clube do Livro</a></li>
+            <li class="menu-item mb-2"><a href="flauteando.html" class="footer-link">Flauteando</a></li>
+            <li class="menu-item mb-2"><a href="nuav.html" class="footer-link">NUAV</a></li>
+            <li class="menu-item mb-2"><a href="passocompasso.html" class="footer-link">PassoComPasso</a></li>
+            <li class="menu-item mb-2"><a href="rabisco.html" class="footer-link">Rabisco</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2 my-3">
+        <div class="footer-menu">
+          <h5 class=" fw-bold mb-4">Contate-nos</h5>
+          <ul class="menu-list list-unstyled">
+            <li class="menu-item mb-2">
+              <a href="mailto:nuarte.mo@gmail.com" class="footer-link">nuarte.mo@gmail.com</a>
+            </li>
+            <li class="menu-item mb-2">
+              <a>Mossoró-RN, Brasil</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <div id="footer-bottom">
+    <hr class="text-black-50">
+    <div class="container">
+      <div class="row py-3">
+        <div class="col-md-6 copyright">
+          <p>© 2024 TemplatesJungle. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  
+  <!-- VLIBRAS -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <!-- FIM VLIBRAS -->
+   
+</body>
+
+</html>
