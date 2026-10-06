@@ -1,0 +1,7 @@
+.git
+.github
+.env
+db_data
+storage
+tests
+README.md

@@ -1,0 +1,5 @@
+.env
+db_data/
+storage/
+vendor/
+.phpunit.result.cache

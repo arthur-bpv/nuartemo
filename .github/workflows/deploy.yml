@@ -1,0 +1,50 @@
+name: Deploy via SFTP
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-sftp
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar cliente SFTP
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Publicar arquivos autorizados
+        env:
+          SFTP_SERVER: ${{ secrets.SFTP_SERVER }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_TARGET_DIR: ${{ secrets.SFTP_TARGET_DIR }}
+        run: |
+          set -euo pipefail
+          : "${SFTP_TARGET_DIR:?Configure o diretório raiz da aplicação no secret SFTP_TARGET_DIR}"
+          lftp -c "
+            set sftp:auto-confirm yes;
+            set net:max-retries 5;
+            set net:timeout 30;
+            set net:reconnect-interval-base 5;
+            open -u '$SFTP_USER','$SFTP_PASSWORD' sftp://$SFTP_SERVER;
+            mirror --reverse --verbose --no-perms --continue \
+              --exclude-glob .git/ \
+              --exclude-glob .github/ \
+              --exclude-glob .env \
+              --exclude-glob .env.example \
+              --exclude-glob Dockerfile \
+              --exclude-glob docker-compose.yml \
+              --exclude-glob .dockerignore \
+              --exclude-glob docker/ \
+              --exclude-glob database/ \
+              --exclude-glob docs/ \
+              --exclude-glob tests/ \
+              --exclude-glob storage/ \
+              --exclude-glob db_data/ \
+              ./ \
+              ${SFTP_TARGET_DIR}/;
+          "
