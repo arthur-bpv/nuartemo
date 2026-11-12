@@ -22,6 +22,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/vendor.css">
 <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/key-panel-entry.css') }}">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -186,6 +187,34 @@
             </li>
 
           </ul>
+
+            <!-- PENDENTE_BACKEND: vincular à rota real de início SUAP quando implementada e validada. -->
+            <div class="key-panel-entry">
+              <a
+                href="{{ url('painel-chaves') }}/"
+                class="key-panel-link"
+                aria-label="Abrir Painel de Chaves"
+                title="Painel de Chaves"
+              >
+                <span class="key-panel-label" aria-hidden="true">
+                  <span class="key-panel-label-inner">Painel de Chaves</span>
+                </span>
+
+                <svg
+                  class="key-panel-icon"
+                  viewBox="0 0 24 24"
+                  width="25"
+                  height="25"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <circle cx="7.5" cy="15.5" r="3.5"></circle>
+                  <path d="M10 13L19 4"></path>
+                  <path d="M16 7L19 10"></path>
+                  <path d="M14 9L17 12"></path>
+                </svg>
+              </a>
+            </div>
 
         </div>
       </div>
