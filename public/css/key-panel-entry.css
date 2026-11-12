@@ -1,0 +1,192 @@
+/*
+ * ChaveNUARTE — entrada visual do Painel de Chaves
+ * FRONT-END ONLY
+ */
+
+.key-panel-entry {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  margin-left: clamp(0.5rem, 1.3vw, 1.4rem);
+  margin-right: clamp(0.25rem, 0.8vw, 0.8rem);
+}
+
+.key-panel-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.7rem;
+
+  color: #04b4bb;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+  outline: none;
+}
+
+.key-panel-label {
+  position: relative;
+  display: block;
+
+  max-width: 0;
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition:
+    max-width 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease;
+}
+
+.key-panel-label-inner {
+  display: block;
+
+  padding: 0 0.15rem 0.38rem;
+
+  color: #ee0979;
+
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+
+  transform: scaleX(0.58);
+  transform-origin: center;
+
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.key-panel-label::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width: calc(100% - 0.3rem);
+  height: 2px;
+
+  border-radius: 999px;
+  background: #ee0979;
+
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.key-panel-icon {
+  flex: 0 0 auto;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  transform: rotate(-2deg);
+
+  transition:
+    color 220ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* efeito "mola" */
+.key-panel-link:hover .key-panel-label,
+.key-panel-link:focus-visible .key-panel-label {
+  max-width: 12rem;
+  opacity: 1;
+}
+
+.key-panel-link:hover .key-panel-label-inner,
+.key-panel-link:focus-visible .key-panel-label-inner {
+  transform: scaleX(1);
+}
+
+.key-panel-link:hover .key-panel-label::after,
+.key-panel-link:focus-visible .key-panel-label::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.key-panel-link:hover .key-panel-icon,
+.key-panel-link:focus-visible .key-panel-icon {
+  color: #ee0979;
+  transform: rotate(0deg) scale(1.08);
+}
+
+.key-panel-link:focus-visible {
+  border-radius: 0.3rem;
+  outline: 2px solid rgba(238, 9, 121, 0.35);
+  outline-offset: 5px;
+}
+
+/* Mobile / offcanvas */
+@media screen and (max-width: 991px) {
+  .key-panel-entry {
+    width: 100%;
+    justify-content: flex-start;
+
+    margin: 0.8rem 0 0;
+    padding: 0.85rem 0 0;
+
+    border-top: 1px solid #d1d1d1;
+  }
+
+  .key-panel-link {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.7rem;
+
+    padding: 0.55rem 0;
+
+    color: #04b4bb;
+  }
+
+  .key-panel-icon {
+    order: 0;
+    width: 22px;
+    height: 22px;
+    transform: none;
+  }
+
+  .key-panel-label {
+    order: 1;
+    max-width: none;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .key-panel-label-inner {
+    padding: 0;
+    color: #04b4bb;
+    font-size: 1rem;
+    transform: none;
+  }
+
+  .key-panel-label::after {
+    display: none;
+  }
+
+  .key-panel-link:hover .key-panel-label-inner,
+  .key-panel-link:focus-visible .key-panel-label-inner,
+  .key-panel-link:hover .key-panel-icon,
+  .key-panel-link:focus-visible .key-panel-icon {
+    color: #ee0979;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key-panel-label,
+  .key-panel-label-inner,
+  .key-panel-label::after,
+  .key-panel-icon {
+    transition: none;
+  }
+}
