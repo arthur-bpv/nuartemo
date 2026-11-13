@@ -7,8 +7,8 @@ services:
       - "${APP_PORT:-8000}:80"
     environment:
       APP_NAME: "${APP_NAME:-NUARTE}"
-      APP_ENV: production
-      APP_DEBUG: "false"
+      APP_ENV: local
+      APP_DEBUG: "true"
       APP_KEY: "${APP_KEY:?Defina APP_KEY no arquivo .env}"
       APP_URL: "${APP_URL:-http://localhost:8000}"
       APP_LOCALE: pt_BR

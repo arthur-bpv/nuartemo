@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b95aef2242bb3dce2389c238b7ec69bf",
+    "content-hash": "1d06c3633e0eac76008c1106161a4bd0",
     "packages": [
         {
             "name": "brick/math",
@@ -583,6 +583,69 @@
             "time": "2025-12-03T09:33:47+00:00"
         },
         {
+            "name": "getartisanflow/wireflow",
+            "version": "v0.2.4-alpha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getartisanflow/wireflow.git",
+                "reference": "e3253c1793cd4344b323c33828d5ea29e3459ee9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getartisanflow/wireflow/zipball/e3253c1793cd4344b323c33828d5ea29e3459ee9",
+                "reference": "e3253c1793cd4344b323c33828d5ea29e3459ee9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^11.0|^12.0|^13.0",
+                "livewire/livewire": "^3.0|^4.0",
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "orchestra/testbench": "^11.0",
+                "pestphp/pest": "^4.4",
+                "pestphp/pest-plugin-laravel": "^4.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ArtisanFlow\\WireFlow\\WireFlowServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ArtisanFlow\\WireFlow\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zac Hiler",
+                    "homepage": "https://github.com/zachiler"
+                }
+            ],
+            "description": "Livewire components for AlpineFlow — build interactive flow diagrams in Laravel.",
+            "keywords": [
+                "alpineflow",
+                "diagram",
+                "flow",
+                "laravel",
+                "livewire",
+                "wireflow"
+            ],
+            "support": {
+                "issues": "https://github.com/getartisanflow/wireflow/issues",
+                "source": "https://github.com/getartisanflow/wireflow/tree/v0.2.4-alpha"
+            },
+            "time": "2026-10-16T02:35:31+00:00"
+        },
+        {
             "name": "graham-campbell/result-type",
             "version": "v1.2.0",
             "source": {
@@ -646,22 +709,22 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "8.3.1",
+            "version": "8.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "7d9b1f430bb65ac664e120af227bf9a795ad6333"
+                "reference": "d3d6055e1b7c9b640170be6341d8b4582f36fd14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7d9b1f430bb65ac664e120af227bf9a795ad6333",
-                "reference": "7d9b1f430bb65ac664e120af227bf9a795ad6333",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d3d6055e1b7c9b640170be6341d8b4582f36fd14",
+                "reference": "d3d6055e1b7c9b640170be6341d8b4582f36fd14",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "guzzlehttp/promises": "^3.1",
-                "guzzlehttp/psr7": "^3.2",
+                "guzzlehttp/psr7": "^3.3",
                 "php": "^7.4 || ^8.0",
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0",
@@ -752,7 +815,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/8.3.1"
+                "source": "https://github.com/guzzle/guzzle/tree/8.4.0"
             },
             "funding": [
                 {
@@ -768,7 +831,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-25T21:35:34+00:00"
+            "time": "2026-11-12T18:55:45+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -856,16 +919,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "3.2.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "cdc139396207a5eba10c242d241fb014cb098390"
+                "reference": "8b0a7e7db965a687eebe18333a128edac95db246"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/cdc139396207a5eba10c242d241fb014cb098390",
-                "reference": "cdc139396207a5eba10c242d241fb014cb098390",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/8b0a7e7db965a687eebe18333a128edac95db246",
+                "reference": "8b0a7e7db965a687eebe18333a128edac95db246",
                 "shasum": ""
             },
             "require": {
@@ -955,7 +1018,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/3.2.0"
+                "source": "https://github.com/guzzle/psr7/tree/3.3.0"
             },
             "funding": [
                 {
@@ -971,7 +1034,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-17T23:57:19+00:00"
+            "time": "2026-11-12T16:40:06+00:00"
         },
         {
             "name": "guzzlehttp/uri-template",
@@ -1058,6 +1121,107 @@
                 }
             ],
             "time": "2026-08-24T17:13:02+00:00"
+        },
+        {
+            "name": "laravel-shift/blueprint",
+            "version": "v2.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-shift/blueprint.git",
+                "reference": "a7c74809d2b769d62a549104d96d02b524173fe5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-shift/blueprint/zipball/a7c74809d2b769d62a549104d96d02b524173fe5",
+                "reference": "a7c74809d2b769d62a549104d96d02b524173fe5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": ">=12.0",
+                "illuminate/database": ">=12.0",
+                "illuminate/filesystem": ">=12.0",
+                "illuminate/support": ">=12.0",
+                "laravel-shift/faker-registry": "^0.3.0",
+                "nunomaduro/termwind": "^2.3",
+                "symfony/yaml": ">=7.0"
+            },
+            "require-dev": {
+                "laravel/pint": "~1.25.0",
+                "mockery/mockery": "^1.4.4",
+                "orchestra/testbench": ">=9.0",
+                "phpunit/phpunit": "^11.5.3"
+            },
+            "suggest": {
+                "jasonmccreary/laravel-test-assertions": "Required to use additional assertions in generated tests (^2.0)."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Blueprint\\BlueprintServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Blueprint\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An expressive, human readable code generation tool.",
+            "keywords": [
+                "code generation",
+                "framework",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel-shift/blueprint/issues",
+                "source": "https://github.com/laravel-shift/blueprint/tree/v2.13.0"
+            },
+            "time": "2025-11-13T20:57:52+00:00"
+        },
+        {
+            "name": "laravel-shift/faker-registry",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-shift/faker-registry.git",
+                "reference": "968ab023b6c76c2f67cc474ba6d81fce8ff869a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-shift/faker-registry/zipball/968ab023b6c76c2f67cc474ba6d81fce8ff869a9",
+                "reference": "968ab023b6c76c2f67cc474ba6d81fce8ff869a9",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Shift\\Faker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jason McCreary",
+                    "email": "jason@pureconcepts.net"
+                }
+            ],
+            "description": "A registry for generating Faker data from a name or data type.",
+            "support": {
+                "issues": "https://github.com/laravel-shift/faker-registry/issues",
+                "source": "https://github.com/laravel-shift/faker-registry/tree/v0.3.0"
+            },
+            "time": "2023-11-24T15:54:02+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2037,6 +2201,149 @@
                 }
             ],
             "time": "2026-11-04T12:45:07+00:00"
+        },
+        {
+            "name": "livewire/livewire",
+            "version": "v4.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livewire/livewire.git",
+                "reference": "8d7f8fc6138274a2f3384c9db354ca012215a259"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/8d7f8fc6138274a2f3384c9db354ca012215a259",
+                "reference": "8d7f8fc6138274a2f3384c9db354ca012215a259",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/routing": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/validation": "^10.0|^11.0|^12.0|^13.0",
+                "laravel/prompts": "^0.1.24|^0.2|^0.3",
+                "league/mime-type-detection": "^1.9",
+                "php": "^8.1",
+                "symfony/console": "^6.0|^7.0|^8.0",
+                "symfony/http-kernel": "^6.2|^7.0|^8.0"
+            },
+            "require-dev": {
+                "calebporzio/sushi": "^2.1",
+                "laravel/framework": "^10.15.0|^11.0|^12.0|^13.0",
+                "mockery/mockery": "^1.3.1",
+                "orchestra/testbench": "^8.21.0|^9.0|^10.0|^11.0",
+                "orchestra/testbench-dusk": "^8.24|^9.1|^10.0|^11.0",
+                "phpunit/phpunit": "^10.4|^11.5|^12.5",
+                "psy/psysh": "^0.11.22|^0.12"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Livewire": "Livewire\\Livewire"
+                    },
+                    "providers": [
+                        "Livewire\\LivewireServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Livewire\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Porzio",
+                    "email": "calebporzio@gmail.com"
+                }
+            ],
+            "description": "A front-end framework for Laravel.",
+            "support": {
+                "issues": "https://github.com/livewire/livewire/issues",
+                "source": "https://github.com/livewire/livewire/tree/v4.4.8"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/livewire",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-10-21T12:53:46+00:00"
+        },
+        {
+            "name": "makermind/erd4dev",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/makermindclub/erd4dev.git",
+                "reference": "c38e1e0cf66b762f3891e7e4c1a7c6b05644efa7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/makermindclub/erd4dev/zipball/c38e1e0cf66b762f3891e7e4c1a7c6b05644efa7",
+                "reference": "c38e1e0cf66b762f3891e7e4c1a7c6b05644efa7",
+                "shasum": ""
+            },
+            "require": {
+                "getartisanflow/wireflow": "0.2.4-alpha",
+                "illuminate/support": "^12.0|^13.0",
+                "laravel-shift/blueprint": "^2.13",
+                "livewire/livewire": "^4.3",
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^10.0|^11.0",
+                "phpunit/phpunit": "^11.5.50"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Makermind\\Erd4dev\\ErdServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Makermind\\Erd4dev\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Makermind",
+                    "homepage": "https://github.com/makermindclub",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A Laravel/Livewire ER-diagram editor that turns visual database designs into relational schemas, SQL exports, and Laravel Blueprint drafts.",
+            "homepage": "https://github.com/makermindclub/erd4dev",
+            "keywords": [
+                "blueprint",
+                "database",
+                "diagram",
+                "erd",
+                "laravel",
+                "livewire",
+                "schema",
+                "sql"
+            ],
+            "support": {
+                "issues": "https://github.com/makermindclub/erd4dev/issues",
+                "source": "https://github.com/makermindclub/erd4dev"
+            },
+            "time": "2026-11-10T21:05:04+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5915,6 +6222,82 @@
             "time": "2026-10-26T21:55:04+00:00"
         },
         {
+            "name": "symfony/yaml",
+            "version": "v8.1.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "e8266f55160f674f290a5f567cb55e11e21f921b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/e8266f55160f674f290a5f567cb55e11e21f921b",
+                "reference": "e8266f55160f674f290a5f567cb55e11e21f921b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4.1",
+                "symfony/polyfill-ctype": "^1.8"
+            },
+            "conflict": {
+                "symfony/console": "<7.4"
+            },
+            "require-dev": {
+                "symfony/console": "^7.4|^8.0",
+                "yaml/yaml-test-suite": "*"
+            },
+            "bin": [
+                "Resources/bin/yaml-lint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Loads and dumps YAML files",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v8.1.11"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-11-04T08:39:20+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "v2.4.0",
             "source": {
@@ -8685,82 +9068,6 @@
             "time": "2024-10-20T05:08:20+00:00"
         },
         {
-            "name": "symfony/yaml",
-            "version": "v8.1.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "e8266f55160f674f290a5f567cb55e11e21f921b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/e8266f55160f674f290a5f567cb55e11e21f921b",
-                "reference": "e8266f55160f674f290a5f567cb55e11e21f921b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.4.1",
-                "symfony/polyfill-ctype": "^1.8"
-            },
-            "conflict": {
-                "symfony/console": "<7.4"
-            },
-            "require-dev": {
-                "symfony/console": "^7.4|^8.0",
-                "yaml/yaml-test-suite": "*"
-            },
-            "bin": [
-                "Resources/bin/yaml-lint"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Loads and dumps YAML files",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/yaml/tree/v8.1.11"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nicolas-grekas",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-11-04T08:39:20+00:00"
-        },
-        {
             "name": "theseer/tokenizer",
             "version": "2.0.1",
             "source": {
@@ -8813,7 +9120,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "getartisanflow/wireflow": 15
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

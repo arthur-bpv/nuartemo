@@ -1,0 +1,8 @@
+created:
+    - database/migrations/2026_11_13_003336_create_keys_table.php
+    - database/migrations/2026_11_13_003337_create_reservations_table.php
+    - app/Models/Key.php
+    - app/Models/Reservation.php
+models:
+    Key: { meta: { table: keys }, timestamps: timestamps, id: id, name: 'string:255', description: 'string:255 nullable', active: boolean }
+    Reservation: { meta: { table: reservations }, timestamps: timestamps, id: id, starts_at: dateTime, ends_at: dateTime, status: 'enum:"pending","approved","rejected"', purpose: 'string:255', approved_by: 'bigInteger unsigned nullable', approved_at: 'dateTime nullable', notes: 'string:255 nullable', user_id: 'id foreign:users.id onDelete:no_action onUpdate:no_action', key_id: 'id foreign:keys.id onDelete:no_action onUpdate:no_action' }
