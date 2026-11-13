@@ -1,4 +1,15 @@
-FROM composer:2 AS vendor
+FROM php:8.5-apache AS runtime
+
+RUN docker-php-ext-install pdo_mysql \
+    && a2enmod rewrite headers \
+    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
+FROM runtime AS vendor
+
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends unzip \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 COPY composer.json composer.lock ./
@@ -6,17 +17,12 @@ RUN composer install --no-dev --no-interaction --prefer-dist --no-scripts --no-a
 COPY . .
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-FROM php:8.4-apache
+FROM runtime
 
-RUN docker-php-ext-install pdo_mysql opcache \
-    && a2enmod rewrite headers
-
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-
-RUN sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
-    && sed -ri 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
+RUN sed -ri 's!DocumentRoot /var/www/html!DocumentRoot /var/www/html/public!' /etc/apache2/sites-available/*.conf \
     && printf 'ServerName localhost\n' > /etc/apache2/conf-available/servername.conf \
-    && a2enconf servername
+    && printf '<Directory "/var/www/html/public">\n    AllowOverride All\n    Require all granted\n</Directory>\nSetEnvIf X-Forwarded-Proto "^https$" HTTPS=on\nHeader always set Strict-Transport-Security "max-age=31536000" env=HTTPS\n' > /etc/apache2/conf-available/nuartemo.conf \
+    && a2enconf servername nuartemo
 
 WORKDIR /var/www/html
 COPY --from=vendor /app /var/www/html

@@ -188,10 +188,9 @@
 
           </ul>
 
-            <!-- PENDENTE_BACKEND: vincular à rota real de início SUAP quando implementada e validada. -->
             <div class="key-panel-entry">
               <a
-                href="{{ url('painel-chaves') }}/"
+                href="{{ route('key-panel') }}"
                 class="key-panel-link"
                 aria-label="Abrir Painel de Chaves"
                 title="Painel de Chaves"

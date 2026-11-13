@@ -14,6 +14,13 @@ return [
     |
     */
 
+    'suap' => [
+        'enabled' => filled(env('SUAP_CLIENT_ID')) && filled(env('SUAP_CLIENT_SECRET')),
+        'client_id' => env('SUAP_CLIENT_ID'),
+        'client_secret' => env('SUAP_CLIENT_SECRET'),
+        'scope' => (trim((string) env('SUAP_SCOPE')) ?: 'identificacao'),
+    ],
+
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],

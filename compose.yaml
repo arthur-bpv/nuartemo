@@ -26,6 +26,9 @@ services:
       ADMIN_NAME: "${ADMIN_NAME:-Administrador}"
       ADMIN_EMAIL: "${ADMIN_EMAIL:-}"
       ADMIN_PASSWORD: "${ADMIN_PASSWORD:-}"
+      SUAP_CLIENT_ID: "${SUAP_CLIENT_ID:-}"
+      SUAP_CLIENT_SECRET: "${SUAP_CLIENT_SECRET:-}"
+      SUAP_SCOPE: "${SUAP_SCOPE:-}"
     depends_on:
       db:
         condition: service_healthy

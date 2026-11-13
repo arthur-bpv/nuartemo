@@ -12,7 +12,7 @@ Site institucional e agenda do NUARTE, migrados para Laravel 13 com autenticaç�
 
    ```bash
    cp .env.example .env
-   docker run --rm --entrypoint php composer:2 -r 'echo "base64:".base64_encode(random_bytes(32)).PHP_EOL;'
+   docker run --rm php:8.5-cli php -r 'echo "base64:".base64_encode(random_bytes(32)).PHP_EOL;'
    ```
 
    Copie o valor gerado para `APP_KEY` no arquivo `.env`.
@@ -40,6 +40,58 @@ Site institucional e agenda do NUARTE, migrados para Laravel 13 com autenticaç�
 
 O site ficará disponível em `http://localhost:8000` e o painel em `http://localhost:8000/admin/eventos`.
 
+## Produção no CapRover do IFRN
+
+O código está no [GitHub](https://github.com/nuartemo/nuartemo). Aponte o deploy para a branch `main`, que contém o `captain-definition` e o `Dockerfile` na raiz.
+
+1. Em **HTTP Settings**, configure **Container HTTP Port** como **80** e mantenha a porta do contêiner sem mapeamento público.
+2. Aponte o DNS do domínio institucional para o CapRover e adicione o domínio à aplicação. A infraestrutura deve liberar **443/TCP** para HTTPS e **80/TCP** para redirecionamento e validação do certificado via HTTP.
+3. Clique em **Enable HTTPS** no domínio. Após a emissão do certificado, habilite **Force HTTPS**. O CapRover encerra a conexão TLS na porta pública **443** e encaminha as requisições ao Apache na porta interna **80**. O Apache usa `X-Forwarded-Proto` para sinalizar HTTPS ao Laravel e enviar o cabeçalho HSTS. [Domínios e HTTPS no CapRover](https://caprover.com/docs/domains)
+
+Solicite à infraestrutura uma base **MySQL** na porta **3306** e preencha as variáveis abaixo no painel do CapRover. A aplicação atual **não precisa de volume persistente**. Os dados, as sessões, o cache e as tabelas de fila ficam no MySQL. Os arquivos públicos são entregues na imagem.
+
+```dotenv
+APP_NAME=NUARTE
+APP_ENV=production
+APP_DEBUG=false
+APP_KEY=
+APP_URL=https://<dominio-institucional>
+APP_LOCALE=pt_BR
+APP_FALLBACK_LOCALE=pt_BR
+
+DB_CONNECTION=mysql
+DB_HOST=<fornecido-pela-infra>
+DB_PORT=3306
+DB_DATABASE=<fornecido-pela-infra>
+DB_USERNAME=<fornecido-pela-infra>
+DB_PASSWORD=<fornecido-pela-infra>
+
+BROADCAST_CONNECTION=log
+FILESYSTEM_DISK=local
+CACHE_STORE=database
+SESSION_DRIVER=database
+SESSION_LIFETIME=120
+SESSION_ENCRYPT=false
+SESSION_PATH=/
+SESSION_DOMAIN=null
+SESSION_SECURE_COOKIE=true
+QUEUE_CONNECTION=database
+LOG_CHANNEL=stderr
+LOG_LEVEL=info
+```
+
+Gere a `APP_KEY` uma vez com `php artisan key:generate --show` em um checkout com as dependências instaladas e mantenha o mesmo valor entre deploys. Insira a chave e as credenciais diretamente no painel. O MySQL é fornecido pela infraestrutura e o CapRover usa somente o contêiner da aplicação.
+
+Na inicialização, o contêiner aguarda o MySQL e aplica as migrations antes de iniciar o Apache. Após o primeiro deploy, verifique `/up`, a página inicial e a agenda pelo domínio HTTPS. Para criar a conta inicial do painel, configure `ADMIN_NAME`, `ADMIN_EMAIL` e `ADMIN_PASSWORD` temporariamente e execute no contêiner:
+
+```bash
+php artisan db:seed --class=AdminUserSeeder --force --no-interaction
+```
+
+Remova `ADMIN_PASSWORD` do painel após criar a conta. A versão atual não dispara tarefas em fila e pode operar sem um worker.
+
+O Laravel gera o token CSRF por sessão. Os formulários internos de login, logout e manutenção de eventos enviam o campo `_token` via `@csrf`. Para requisições JavaScript que alterem dados na própria aplicação, use o valor da meta tag `csrf-token` no cabeçalho `X-CSRF-TOKEN`. A `APP_KEY` protege os cookies e deve permanecer estável entre deploys. [Proteção CSRF no Laravel](https://laravel.com/docs/13.x/csrf)
+
 ## Comandos úteis
 
 ```bash
@@ -57,36 +109,33 @@ As credenciais do sistema antigo foram removidas do código. Como elas continuam
 
 - Botão no header: `resources/views/pages/home.blade.php`, dentro do offcanvas existente.
 - CSS da entrada: `public/css/key-panel-entry.css`, idêntico ao aprovado na branch visual.
-- Painel estático: `public/painel-chaves/` (HTML, JS, CSS, favicon e ícones).
-- URL pública: `/painel-chaves/`; Histórico: `/painel-chaves/#/historico`.
+- Painel estático: `resources/views/pages/key-panel.blade.php` (HTML) e `public/chavenuarte-assets/` (JS, CSS, favicon e ícones).
+- URL com sessão SUAP: `/painel-chaves`; Histórico: `/painel-chaves#/historico`.
 - O document root deve ser o `public/` já previsto pelo Laravel. Os assets do painel usam caminhos relativos; o HashRouter permite atualizar o Histórico sem rota Laravel adicional.
 
 Artefatos reutilizados de `origin/frontend/chavenuarte-entry` (`ba7c6f7`), equivalentes aos de `bdda3d0`. O CSS, SVG e animações da entrada foram preservados. A única alteração no JS compilado substitui cinco literais de perfil/responsáveis por exemplos explícitos, pois não havia comprovação da origem fictícia dos nomes. O aviso de demonstração fica documentado neste README; a faixa adicionada na migração foi removida para restaurar o layout aprovado. Não é necessário recompilar o painel para esta migração.
 
 O bundle publicado é `public/painel-chaves/assets/index-a588e939141e56c5.js`: o sufixo corresponde aos primeiros 16 caracteres do SHA-256 do conteúdo publicado (`a588e939141e56c502f330f5cf72df4c9a86046e219385a926a7c80e5bba73b5`). A finalização apenas renomeia o arquivo já anonimizado e atualiza sua referência no HTML, sem editar novamente o bundle nem o repositório `key-panel`. Os caminhos novos da homepage usam `asset()` e `url()`, respeitando a URL base do Laravel; a barra final mantém os assets relativos do painel.
 
-O painel atual é demonstrativo, utiliza dados fictícios e não possui autenticação real. As operações existem apenas na memória da página: desaparecem ao recarregar. O perfil de demonstração não resulta de login, não comprova vínculo de bolsista e não autoriza acesso a dados reais. O botão “Sair” já era apenas demonstrativo.
+O painel usa autenticação SUAP na entrada e apresenta dados fictícios. As operações existem apenas na memória da página: desaparecem ao recarregar. O perfil de demonstração não resulta de login, não comprova vínculo de bolsista e não autoriza acesso a dados reais. O botão “Sair” já era apenas demonstrativo.
 
-### Contrato com o backend SUAP
+### Login institucional com SUAP
 
-**SUAP_LOGIN=PENDING_BACKEND**. Na auditoria da base `a743336`, não foi encontrada rota, controller ou configuração de autenticação SUAP. O `/login` existente autentica administradores de eventos por e-mail/senha e permanece independente.
+Cadastre a aplicação no SUAP como cliente **Confidential**, fluxo **Authorization Code**, com a URI de redirecionamento exata `https://nuartemo.ifrn.edu.br/auth/suap/callback`.
 
-| Etapa | Estado nesta migração |
-| --- | --- |
-| A — link visual para o protótipo | Implementado em `/painel-chaves/` |
-| B — início da autenticação SUAP | PENDENTE_BACKEND: endpoint real ainda ausente |
-| C — autenticação SUAP concluída | PENDENTE_BACKEND |
-| D — autorização de bolsista | PENDENTE_BACKEND |
-| E — persistência de retiradas/devoluções | PENDENTE_BACKEND |
+No CapRover, mantenha `APP_URL=https://nuartemo.ifrn.edu.br` e configure `SUAP_CLIENT_ID` e `SUAP_CLIENT_SECRET`. O escopo padrão é `identificacao`. Se o cadastro exigir outro valor, defina em `SUAP_SCOPE` o escopo autorizado pelo IFRN que dá acesso a `GET /api/rh/eu/`. O fluxo usa PKCE S256 e valida um `state` da sessão antes de trocar o código no servidor.
 
-Para a futura integração, a equipe backend deverá:
+- `GET /login` redireciona para o SUAP para iniciar o login administrativo.
+- `GET /auth/suap` inicia a autorização em `https://suap.ifrn.edu.br/o/authorize/`.
+- `GET /auth/suap/callback` recebe o código, solicita o token em `https://suap.ifrn.edu.br/o/token/` e lê o campo `identificacao` de `https://suap.ifrn.edu.br/api/rh/eu/`.
 
-1. Implementar e validar a rota real de início SUAP no Laravel (`routes/web.php`) e informar sua URL/nome. O ponto de ligação frontend é o `href` de `.key-panel-link` em `resources/views/pages/home.blade.php`, marcado com `PENDENTE_BACKEND`. Só substituir `/painel-chaves/` após comprovar o endpoint; esta migração não cria uma rota provisória.
-2. Obter o cadastro/aprovação institucional da aplicação, identificador público do cliente, domínios e URIs de callback autorizados para cada ambiente, endpoints vigentes e escopos necessários. Eventuais segredos devem permanecer exclusivamente no servidor, fora do Git e dos assets públicos.
-3. Implementar a validação da identidade retornada, sessão e tratamento de falhas; definir e validar o vínculo/autorização de bolsista por matrícula com a instituição.
-4. Fornecer persistência e endpoints protegidos para retiradas/devoluções. O diretório público do protótipo não deve receber dados reais antes dessa proteção.
+O botão Painel de Chaves na página inicial abre `GET /painel-chaves`. Sem sessão SUAP, essa rota inicia a autorização e retorna ao painel após o callback. A sessão do painel demonstrativo permite acesso a identidades válidas do SUAP. Para administrar a agenda pelo SUAP, é preciso ter uma conta local previamente autorizada. Após confirmar a identidade institucional do titular e aplicar as migrations, vincule a conta pelo terminal do contêiner:
 
-As referências [cliente SUAP IFRN](https://github.com/ifrn-oficial/cliente_suap_javascript) e [login SUAP JavaScript](https://github.com/claytonmaciel/login_suap_javascript) servem apenas para consulta de protocolo. Nenhum cliente antigo foi incorporado. Não usar o OAuth Implicit legado, tokens em cookies via JavaScript, `/api/eu/` legado ou captura de senha institucional neste frontend.
+```bash
+php artisan suap:link administrador@example.com IDENTIFICADOR_SUAP
+```
+
+Para desenvolvimento via Docker, cadastre também `http://10.38.0.90:8000/auth/suap/callback` no cliente de desenvolvimento e use `APP_URL=http://10.38.0.90:8000`. O protótipo ChaveNUARTE continua demonstrativo. O vínculo com a conta local autoriza o acesso à administração da agenda e deve ser reservado às pessoas que podem exercer essa função.
 
 ### Validação local desta migração
 

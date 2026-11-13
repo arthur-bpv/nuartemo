@@ -3,16 +3,19 @@
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PublicEventController;
+use App\Http\Controllers\SuapLoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages.home')->name('home');
 
 Route::get('/eventos', [PublicEventController::class, 'index'])->name('events.public');
 Route::get('/eventos/feed', [PublicEventController::class, 'feed'])->name('events.feed');
+Route::get('/painel-chaves', [SuapLoginController::class, 'keyPanel'])->name('key-panel');
+Route::get('/auth/suap/callback', [SuapLoginController::class, 'callback'])->name('suap.callback');
 
 Route::middleware('guest')->group(function (): void {
-    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
-    Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
+    Route::get('/login', [SuapLoginController::class, 'redirect'])->name('login');
+    Route::get('/auth/suap', [SuapLoginController::class, 'redirect'])->name('suap.redirect');
 });
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
