@@ -10,18 +10,8 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
     protected $table = 'reservations';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'starts_at',
         'ends_at',
@@ -29,16 +19,13 @@ class Reservation extends Model
         'purpose',
         'approved_by',
         'approved_at',
+        'checked_out_at',
+        'returned_at',
         'notes',
         'user_id',
         'key_id',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
@@ -47,6 +34,8 @@ class Reservation extends Model
             'ends_at' => 'datetime',
             'approved_by' => 'integer',
             'approved_at' => 'datetime',
+            'checked_out_at' => 'datetime',
+            'returned_at' => 'datetime',
             'user_id' => 'integer',
             'key_id' => 'integer',
         ];
